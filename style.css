@@ -33,6 +33,11 @@ h4 {
     box-sizing: border-box;
 }
 
+.row{
+    display: block;
+    margin: 5px 0;
+}
+
 .footer {
     padding: 15px 20px 10px 20px;
     text-align: center;

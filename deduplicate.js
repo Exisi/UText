@@ -1,18 +1,20 @@
 (function () {
     let getConfig = () => {
-        let check = document.querySelectorAll(".rule");
+        let row = document.querySelectorAll(".row-rule");
+        let inline = document.querySelectorAll(".inline-rule");
         let split = document.getElementById("split");
         let type = document.getElementById("output-type");
-        check[2].disabled = true;
+        inline[1].disabled = true;
         let config = {
-            line: check[0].checked,
-            inline: check[1].checked,
-            toRow: check[2].checked,
-            blank: check[3].checked,
+            line: row[0].checked,
+            rblank: row[1].checked,
+            inline: inline[0].checked,
+            toRow: inline[1].checked,
+            blank: inline[2].checked,
             split: split.value != "" ? split.value : " ",
             type: type.value,
         };
-        if (config.inline) check[2].disabled = false;
+        if (config.inline) inline[1].disabled = false;
         return config;
     }
 
@@ -80,11 +82,22 @@
         return v;
     }
 
+    let textRemoveBlankRow = (v) => {
+        let rowlist = [];
+        let list = v.split("\n");
+        for (const i in list) {
+            if (list[i] != "") rowlist.push(list[i]);
+        }
+        v = rowlist.join("\n");
+        return v;
+    }
+
     let modelSetting = (v, c) => {
         if (c.inline) v = textFormatByInLine(v, c.split);
         if (c.line) v = textFormatByLine(v);
         if (c.toRow && c.inline) v = textFormatToAllRow(v, c.split);
         if (c.blank) v = textRemoveMutiBlank(v, c.split);
+        if (c.rblank) v = textRemoveBlankRow(v);
         if (c.type == 1) {
             v = v.replaceAll("\n", c.split).replaceAll(/(\x20)+/g, " ");
             if (c.inline) v = textFormatByInLine(v, c.split);
@@ -107,26 +120,24 @@
         }
         outText.innerHTML = modelSetting(v, config);
     }
+
     let timer;
-    let input = document.getElementById("input");
-    input.addEventListener("keydown", () => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            setText();
-        }, 100)
-    });
-    let check = document.querySelectorAll(".rule,.select");
-    check[2].disabled = true;
-    check.forEach(e => {
-        e.addEventListener("click", () => {
-            setText();
+    let input = document.querySelectorAll("#input,.split");
+    input.forEach(e => {
+        e.addEventListener("keydown", () => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                setText();
+            }, 100)
         });
     });
-    let insplit = document.getElementById("split");
-    insplit.addEventListener("keydown", () => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            setText();
-        }, 100)
+
+    let inline = document.getElementsByClassName("inline-rule")[1];
+    inline.disabled = true;
+
+    let container = document.getElementById("center");
+    container.addEventListener("click", (e) => {
+        let tag = e.target.tagName.toLowerCase();
+        if (tag == "input" || tag == "select") setText();
     });
 }());

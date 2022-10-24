@@ -15,16 +15,17 @@
         <textarea name="input_text" id="input" class="text" cols="30" rows="10"></textarea>
     </div>
     <div id="center">
-        <span>
-            <input type="checkbox" name="line" class="rule" checked>多行去重
+        <span class="row">
+            <input type="checkbox" name="line" class="row-rule" checked>多行去重
+            <input type="checkbox" name="row-blank" class="row-rule" checked>去除空行
         </span>
         <sapn class="in">
-            <input type="checkbox" name="inline" class="rule">单行内去重
-            <input type="checkbox" name="torow" class="rule">作用到多行
+            <input type="checkbox" name="inline" class="inline-rule">单行内去重
+            <input type="checkbox" name="torow" class="inline-rule">作用到多行
         </sapn>
         <input type="text" id="split" name="split" class="split" placeholder="字符分割符（默认空格）">
         <sapn>
-            <input type="checkbox" name="blank" class="rule blank">多空格处理
+            <input type="checkbox" name="blank" class="inline-rule blank">多空格处理
         </sapn>
         <select name="type" id="output-type" class="in select">
             <option value="0">默认输出</option>
