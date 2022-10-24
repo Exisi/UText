@@ -1,5 +1,5 @@
 ### UText
-一个功能较全的文本去重工具
+一个功能较全的多行文本去重工具
 ![UText](https://github.com/Exisi/UText/blob/main/img/show.jpg?raw=true)
 
 ### 功能
