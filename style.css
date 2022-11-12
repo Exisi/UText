@@ -1,94 +1,121 @@
 a {
-    color: rgb(123, 224, 185);
-    text-decoration: none;
+	color: rgb(123, 224, 185);
+	text-decoration: none;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: #afb5bd;
 }
 
-h4 {
-    margin: 10px;
+h3 {
+	margin: 15px;
 }
 
 #top,
 #bottom,
 #center {
-    margin: 15px;
-    flex: 1;
+	margin: 15px;
+	flex: 1;
 }
-
 
 .text {
-    width: 700px;
-    height: 200px;
-    padding: 20px;
-    font-size: large;
-    outline: none;
-    border-radius: 5px;
-    resize: none;
-    box-sizing: border-box;
+	width: 700px;
+	height: 200px;
+	padding: 20px;
+	font-size: large;
+	outline: none;
+	border-radius: 5px;
+	resize: none;
+	box-sizing: border-box;
 }
 
-.row{
-    display: block;
-    margin: 5px 0;
+.row {
+	display: block;
+	margin: 5px 0;
+}
+
+#copy {
+	border: none;
+	font-size: 14px;
+	border-radius: 100px;
+	padding: 5px 25px;
+	margin: 15px;
+	background: rgb(105, 111, 121);
+	color: #fff;
+}
+
+#copy-ok {
+	background: #57a;
+	border: #fff 1px solid;
+	box-sizing: border-box;
+	font-size: 14px;
+	border-radius: 100px;
+	padding: 5px 25px;
+	margin: 15px;
+	color: #fff;
 }
 
 .footer {
-    padding: 15px 20px 10px 20px;
-    text-align: center;
-    font-size: 12px;
-    color: #ccc;
+	padding: 10px 20px 10px 20px;
+	text-align: center;
+	font-size: 12px;
+	color: #ccc;
+}
+
+.split {
+	outline: none;
+	border: #000 solid 1px;
+	border-radius: 3px;
 }
 
 @media (max-width: 720px) {
-    .text {
-        width: 600px;
-    }
+	.text {
+		width: 600px;
+	}
 
-    .in {
-        display: block;
-        margin: 5px 0;
-    }
+	.in {
+		display: block;
+		margin: 5px 0;
+	}
 
-    .split,
-    .blank {
-        margin: 5px 0;
-    }
+	.split,
+	.blank {
+		margin: 5px 0;
+	}
 }
 
 @media (max-width: 690px) {
-    .text {
-        width: 500px;
-    }
+	.text {
+		width: 500px;
+	}
 
-    .in {
-        display: block;
-        margin: 5px 0;
-    }
+	.in {
+		display: block;
+		margin: 5px 0;
+	}
 
-    .split,
-    .blank {
-        margin: 5px 0;
-    }
+	.split,
+	.blank {
+		margin: 5px 0;
+	}
 }
 
 @media (max-width: 660px) {
-    .text {
-        width: 100%;
-    }
+	.text {
+		width: 100%;
+	}
 
-    .in {
-        display: block;
-        margin: 5px 0;
-    }
+	.in {
+		display: block;
+		margin: 5px 0;
+	}
 
-    .split,
-    .blank {
-        margin: 5px 0;
-    }
+	.split,
+	.blank {
+		margin: 5px 0;
+	}
 }
