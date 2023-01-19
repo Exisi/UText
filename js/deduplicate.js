@@ -11,7 +11,7 @@
 		inText: document.getElementById("input"),
 		outText: document.getElementById("output"),
 	};
-	DOM.inline.disabled = true;
+	DOM.inline[1].disabled = true;
 	DOM.inline[3].disabled = true;
 	DOM.container.addEventListener("click", (e) => {
 		let tag = e.target.tagName.toLowerCase();
