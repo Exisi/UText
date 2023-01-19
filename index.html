@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>UText - 文本去重工具</title>
 		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" href="./style.css" />
+		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 	<body>
 		<h3>文本去重</h3>
@@ -48,6 +48,10 @@
 				<option value="1">输出为单行</option>
 				<option value="2">输出一词一行</option>
 			</select>
+			<input
+				type="checkbox"
+				name="blank"
+				class="inline-rule pre-suf-blank" />前后空格处理
 		</div>
 		<div id="bottom">
 			<textarea
@@ -62,11 +66,10 @@
 
 		<footer class="footer">
 			<p>
-				Copyright © 2022 <a href="https://www.exi.ink">Exisi</a> All Rights
-				Reserved
+				Copyright ©<a href="https://www.exi.ink">Exisi</a> All Rights Reserved
 			</p>
 		</footer>
-		<script src="./deduplicate.js"></script>
-		<script src="./copy.js"></script>
+		<script src="./js/deduplicate.js"></script>
+		<script src="./js/copy.js"></script>
 	</body>
 </html>
