@@ -23,8 +23,8 @@ h3 {
 }
 
 .text {
-	width: 700px;
-	height: 200px;
+	width: 720px;
+	height: 220px;
 	padding: 20px;
 	font-size: large;
 	outline: none;
@@ -69,8 +69,21 @@ h3 {
 
 .split {
 	outline: none;
-	border: #000 solid 1px;
-	border-radius: 3px;
+	border-radius: 2px;
+	border: none;
+	padding: 0 5px;
+}
+
+.row-rule,
+.inline-rule {
+	width: 15px;
+	height: 15px;
+}
+
+#output-type {
+	border: none;
+	border-radius: 2px;
+	outline: none;
 }
 
 @media (max-width: 720px) {
