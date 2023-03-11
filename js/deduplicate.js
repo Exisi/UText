@@ -85,9 +85,9 @@
 	function formatToUniqueRow(v, c) {
 		let rowlist = [];
 		let list = v.split("\n");
-		list.forEach((word) => {
-			word = c.remove_pre_suf_blank ? word.trim() : word;
-			rowlist.push(word);
+		list.forEach((row) => {
+			row = c.remove_pre_suf_blank ? row.trim() : row;
+			rowlist.push(row);
 		});
 		v = rowlist.join("\n");
 		return [...new Set(v.split("\n"))].join("\n");
@@ -96,14 +96,14 @@
 	function formatToUniqueWord(v, s) {
 		let list = v.split("\n");
 		let rowlist = [];
-		list.forEach((line) => {
+		list.forEach((row) => {
 			if (s != " ") {
-				line = line.split(s);
-				rowlist.push([...new Set(line)].join(s));
+				row = row.split(s);
+				rowlist.push([...new Set(row)].join(s));
 			} else {
-				line = line.split(" ");
+				words = row.split(" ");
 				let newline = [];
-				line.forEach((word) => {
+				words.forEach((word) => {
 					if (!newline.includes(word) || word == "") {
 						newline.push(word);
 					}
@@ -141,7 +141,7 @@
 	 */
 	function removeBlankRow(v) {
 		let list = v.split("\n");
-		return list.filter((item) => item != "").join("\n");
+		return list.filter((row) => row != "").join("\n");
 	}
 
 	function textRemoveMutiBlank(v, s) {
@@ -149,10 +149,9 @@
 			v = v.replaceAll(/(\x20)+/g, " ");
 			let rowlist = [];
 			let list = v.split("\n");
-			for (const i in list) {
-				let temp = list[i];
-				if (list[i].indexOf(" ") == 0) temp = temp.substring(1, temp.length);
-				rowlist.push(temp);
+			for (const row of list) {
+				if (row.indexOf(" ") == 0) row = row.substring(1, temp.length);
+				rowlist.push(row);
 			}
 			v = rowlist.join("\n");
 		} else {
