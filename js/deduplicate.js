@@ -118,15 +118,15 @@
 		let list = v.split("\n");
 		let rowlist = [];
 		let unique_list = [];
-		for (const i in list) {
-			let line = list[i].split(s);
+		for (const row of list) {
+			let words = row.split(s);
 			let newline = [];
-			for (const j in line) {
-				if ((!newline.includes(line[j]) || line[j] == "") && !unique_list.includes(line[j])) {
-					newline.push(line[j]);
+			for (const word of words) {
+				if ((!newline.includes(word) || word == "") && !unique_list.includes(word)) {
+					newline.push(word);
 				}
 			}
-			let sets = new Set(line);
+			let sets = new Set(words);
 			sets.delete("");
 			let temp = Array.from(sets);
 			unique_list.push.apply(unique_list, temp);
