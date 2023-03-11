@@ -61,62 +61,60 @@
 		 * v: text value
 		 * c: format config
 		 */
-		if (c.inline) v = textFormatByInLine(v, c.split);
-		if (c.line) v = textFormatByLine(v, c);
-		if (c.toRow && c.inline) v = textFormatToAllRow(v, c.split);
+		if (c.inline) v = formatToUniqueWord(v, c.split);
+		if (c.line) v = formatToUniqueRow(v, c);
+		if (c.toRow && c.inline) v = formatToAllRow(v, c.split);
 		if (c.remove_blank) v = textRemoveMutiBlank(v, c.split);
 		if (c.type == 1) {
 			v = v.replaceAll("\n", c.split).replaceAll(/(\x20)+/g, " ");
-			if (c.inline) v = textFormatByInLine(v, c.split);
+			if (c.inline) v = formatToUniqueWord(v, c.split);
 		}
 		if (c.type == 2) {
 			v = v.replaceAll("\n", c.split).replaceAll(/(\x20)+/g, " ");
 			v = v.replaceAll(c.split, "\n");
-			if (c.line) v = textFormatByLine(v, c);
+			if (c.line) v = formatToUniqueRow(v, c);
 		}
-		if (c.remove_blank_row) v = textRemoveBlankRow(v);
+		if (c.remove_blank_row) v = removeBlankRow(v);
 		return v;
 	}
 
 	/******************************************************************
 	 * text dedeuplicate format method
 	 */
-	function textFormatByLine(v, c) {
+
+	function formatToUniqueRow(v, c) {
 		let rowlist = [];
 		let list = v.split("\n");
-		for (const i in list) {
-			let word = list[i];
-			if (c.remove_pre_suf_blank) {
-				word = word.trim();
-			}
+		list.forEach((word) => {
+			word = c.remove_pre_suf_blank ? word.trim() : word;
 			rowlist.push(word);
-		}
+		});
 		v = rowlist.join("\n");
 		return [...new Set(v.split("\n"))].join("\n");
 	}
 
-	function textFormatByInLine(v, s) {
+	function formatToUniqueWord(v, s) {
 		let list = v.split("\n");
 		let rowlist = [];
-		for (const i in list) {
+		list.forEach((line) => {
 			if (s != " ") {
-				let line = list[i].split(s);
+				line = line.split(s);
 				rowlist.push([...new Set(line)].join(s));
 			} else {
-				let line = list[i].split(" ");
+				line = line.split(" ");
 				let newline = [];
-				for (const j in line) {
-					if (!newline.includes(line[j]) || line[j] == "") {
-						newline.push(line[j]);
+				line.forEach((word) => {
+					if (!newline.includes(word) || word == "") {
+						newline.push(word);
 					}
-				}
+				});
 				rowlist.push(newline.join(" "));
 			}
-		}
+		});
 		return rowlist.join("\n");
 	}
 
-	function textFormatToAllRow(v, s) {
+	function formatToAllRow(v, s) {
 		let list = v.split("\n");
 		let rowlist = [];
 		let unique_list = [];
@@ -124,10 +122,7 @@
 			let line = list[i].split(s);
 			let newline = [];
 			for (const j in line) {
-				if (
-					(!newline.includes(line[j]) || line[j] == "") &&
-					!unique_list.includes(line[j])
-				) {
+				if ((!newline.includes(line[j]) || line[j] == "") && !unique_list.includes(line[j])) {
 					newline.push(line[j]);
 				}
 			}
@@ -144,14 +139,9 @@
 	/******************************************************************
 	 * text blank format method
 	 */
-	function textRemoveBlankRow(v) {
-		let rowlist = [];
+	function removeBlankRow(v) {
 		let list = v.split("\n");
-		for (const i in list) {
-			if (list[i] != "") rowlist.push(list[i]);
-		}
-		v = rowlist.join("\n");
-		return v;
+		return list.filter((item) => item != "").join("\n");
 	}
 
 	function textRemoveMutiBlank(v, s) {
