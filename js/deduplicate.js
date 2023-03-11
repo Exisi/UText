@@ -97,19 +97,8 @@
 		let list = v.split("\n");
 		let rowlist = [];
 		list.forEach((row) => {
-			if (s != " ") {
-				row = row.split(s);
-				rowlist.push([...new Set(row)].join(s));
-			} else {
-				words = row.split(" ");
-				let newline = [];
-				words.forEach((word) => {
-					if (!newline.includes(word) || word == "") {
-						newline.push(word);
-					}
-				});
-				rowlist.push(newline.join(" "));
-			}
+			words = row.split(s);
+			rowlist.push([...new Set(words)].join(s));
 		});
 		return rowlist.join("\n");
 	}
