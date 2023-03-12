@@ -78,7 +78,7 @@ body {
 	border: 2px solid #a9b6da;
 }
 
-.row {
+.multiline {
 	display: block;
 	margin: 5px 0;
 }
@@ -118,7 +118,7 @@ body {
 	background: #dbe1f1;
 }
 
-.split {
+#split {
 	outline: none;
 	border-radius: 2px;
 	border: 2px solid #a9b6da;
@@ -156,12 +156,12 @@ body {
 }
 
 @media (max-width: 720px) {
-	.in {
+	.line {
 		display: block;
 		margin: 5px 0;
 	}
 
-	.split,
+	#split,
 	.blank {
 		margin: 5px 0;
 	}
@@ -172,12 +172,12 @@ body {
 		width: 500px;
 	}
 
-	.in {
+	.inline {
 		display: block;
 		margin: 5px 0;
 	}
 
-	.split,
+	#split,
 	.blank {
 		margin: 5px 0;
 	}
@@ -203,12 +203,12 @@ body {
 		height: 160px;
 	}
 
-	.in {
+	.inline {
 		display: block;
 		margin: 5px 0;
 	}
 
-	.split,
+	#split,
 	.blank {
 		margin: 5px 0;
 	}

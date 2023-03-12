@@ -40,47 +40,32 @@
 		</div>
 		<div class="main">
 			<div id="top">
-				<textarea
-					name="input_text"
-					id="input"
-					class="text"
-					cols="30"
-					rows="10"></textarea>
+				<textarea name="input_text" id="input" class="text" cols="30" rows="10"></textarea>
 			</div>
 			<div id="center">
-				<span class="row">
-					<input type="checkbox" name="line" class="row-rule" checked />多行去重
+				<span class="checkbox multiline">
+					<input type="checkbox" name="unique-multiline" class="row-rule" checked />多行去重
+					<input type="checkbox" name="remove-blank" class="row-rule" checked />移除空行
+				</span>
+				<sapn class="checkbox inline">
+					<input type="checkbox" name="unique-inline" class="inline-rule" />行内去重
+					<input type="checkbox" name="expand-to-all" class="inline-rule" />全局去重
 					<input
 						type="checkbox"
-						name="row-blank"
-						class="row-rule"
-						checked />去除空行
-				</span>
-				<sapn class="in">
-					<input type="checkbox" name="inline" class="inline-rule" />单行内去重
-					<input type="checkbox" name="torow" class="inline-rule" />作用到多行
+						name="pre-suf-blank"
+						class="inline-rule pre-suf-blank" />前后空格处理
 				</sapn>
 				<input
 					type="text"
 					id="split"
 					name="split"
-					class="split"
+					class="rule"
 					placeholder="字符分割符（默认空格）" />
-				<sapn>
-					<input
-						type="checkbox"
-						name="blank"
-						class="inline-rule blank" />多空格处理
-				</sapn>
-				<select name="type" id="output-type" class="in select">
+				<select id="output-type" class="select inline">
 					<option value="0">默认输出</option>
 					<option value="1">输出为单行</option>
 					<option value="2">输出一词一行</option>
 				</select>
-				<input
-					type="checkbox"
-					name="blank"
-					class="inline-rule pre-suf-blank" />前后空格处理
 			</div>
 			<div id="bottom">
 				<textarea
@@ -96,10 +81,7 @@
 			<button id="copy">复制</button>
 		</div>
 		<div class="footer">
-			<p>
-				Copyright ©2022 <a href="https://www.exi.ink">Exisi</a> All Rights
-				Reserved
-			</p>
+			<p>Copyright ©2023 <a href="https://www.exi.ink">Exisi</a> All Rights Reserved</p>
 		</div>
 		<script src="./js/deduplicate.js"></script>
 		<script src="./js/copy.js"></script>
