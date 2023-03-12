@@ -121,6 +121,13 @@
 
 		if (rule.formatType == 2) {
 			newList = newList.flat(Infinity);
+
+			if (rule.unique.multiline) {
+				newList = newList.filter((row, index) => {
+					//unique row, but save the "" row
+					return newList.indexOf(row) === index || row == "";
+				});
+			}
 			newList = rule.notBlank.row ? newList.filter((row) => row != "") : newList;
 			return newList.join("\n");
 		}
