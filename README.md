@@ -1,5 +1,5 @@
 <div align=center>
-  <img style="text-align:center" src=https://raw.githubusercontent.com/Exisi/UText/main/favicon.ico width=10% />
+  <img style="text-align:center" src=https://raw.githubusercontent.com/Exisi/UText/main/favicon.ico width=15% />
   <h1>UText</h1>
   <p>一个功能较全的多行文本去重工具</p>
 </div>
@@ -11,3 +11,4 @@
 - 单行/多行/全局去重
 - 去除空白，去除空行
 - 格式化输出
+- 自定义分割符
